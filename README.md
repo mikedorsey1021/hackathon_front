@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the team "Squad_of_Squids" front-end component being submitted for the Hacktober 2020 competition being hosted by the non-profit "Code Platoon".
+This front-end component is designed to work in conjunction with the back-end component which can be located at https://github.com/solidlikeplato/hackathon_back
+
+The project is designed to create a user-friendly web application for the non-profit "Illinois Joining Forces" whose mission is to assist service members, veterans, and their families navigate the myriad of resources available to them.
+
+The aim of this front-end component is to provide a clean, easy-to-use, interface which allows members of Illinois Joining Forces to seamlessly input any patron's information and instantaneously receive a complete list of organizations, in the state of Illinois, providing services that match their needs.
+
+The front-end of this web application also provides a form that allows any organization that serves service members, veterans, and their families to input their information and allows them to be included in Illinois Joining Forces growing network.
 
 ## Available Scripts
 
