@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { ButtonComponent } from '../Button/Button';
 import style from 'styled-components';
 import { FormInput } from '../FormInput/FormInput';
-import { Link, Redirect } from 'react-router-dom';
+import {api} from '../API/utils.js'
 import CheckboxForm from '../CheckboxForm/CheckboxForm';
 
 export const ContactForm = () => {
@@ -52,7 +52,7 @@ export const ContactForm = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(formData)
+        api.post(formData)
         setSubmit({
             ...isSubmitted,
             hasSubmitted: true
