@@ -1,7 +1,8 @@
 import React,{Fragment} from 'react'
 import style from 'styled-components';
 import PropTypes from 'prop-types';
-export const FormInput = ({ name,
+export const FormInput = ({
+    name,
     type,
     placeholder,
     onChange,
@@ -13,9 +14,9 @@ export const FormInput = ({ name,
 
     return (
         <Fragment>
-            {/* <label htmlFor={name}>{label}</label> */}
             <Input
                 name={name}
+                label={label}
                 type={type}
                 placeholder={placeholder}
                 onChange={onChange}
@@ -34,6 +35,7 @@ const Input = style.input`
     border-left-style: hidden;
     width: 100%
 `;
+
 
 Input.defaultProps = {
     type: "text",

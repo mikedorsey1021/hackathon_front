@@ -1,19 +1,22 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 
 import './App.css';
 import { Navbar } from './components/Navbar/Navbar';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Landing } from './components/Landing/Landing';
-import { ContactForm } from './components/form/ContactForm';
 import { HomePage } from './screens/HomePage';
+import { About } from './screens/About';
 
 function App() {
   return (
     <BrowserRouter >
-      <Navbar/>
-      <HomePage/>
-
+      <Fragment>
+        <Navbar />
+        <Route exact path="/" component={HomePage} />
+        <Switch>
+          <Route exact path="/about" component={About} />
+        </Switch>
+      </Fragment>
     </BrowserRouter>
   );
 }

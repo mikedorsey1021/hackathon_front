@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { ButtonComponent } from '../Button/Button';
 import style from 'styled-components';
 import { FormInput } from '../FormInput/FormInput';
+import { Link, Redirect } from 'react-router-dom';
 
 export const ContactForm = () => {
 
@@ -20,6 +21,10 @@ export const ContactForm = () => {
         error: []
     })
 
+    const [isSubmitted, setSubmit] = useState({
+        hasSubmitted: false
+    })
+
     const {
         organization,
         name,
@@ -35,22 +40,43 @@ export const ContactForm = () => {
         error
     } = formData
 
-    const handleChange = evt => {
+    const {hasSubmitted} =isSubmitted
+
+    const handleChange = ({target}) => {
         setData({
             ...formData,
-             [evt.target.name] : evt.target.value
+             [target.name] : target.value
             })
 }
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(formData)
-    }
+        setSubmit({
+            hasSubmitted: true
+        })
 
+    }
+    
     return (
         <FormContainer>
             <h1>Join Our Partner Database</h1>
             <FormItem onSubmit={evt => handleSubmit(evt)}>
+
+
+                {/* {
+                        Object.keys(formData).map(key => (
+                            <InputContainer>
+                                <FormInput
+                                    type='text'
+                                    name={`${key}`}
+                                    value={key}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </InputContainer>
+                        ))
+                } */}
                 <InputContainer >
                     <FormInput
                         type='text'
@@ -158,6 +184,7 @@ export const ContactForm = () => {
                         error={error}
                         required
                     />
+                </InputContainer>
                     <InputContainer>
                         <FormInput
                             name='extension '
@@ -167,8 +194,7 @@ export const ContactForm = () => {
                             placeholder="Phone Extension "
                         />
                     </InputContainer>
-                </InputContainer>
-                <ButtonComponent title={'Submit'} color={'signup'} />
+                <ButtonComponent title={'Submit'} color={'signup'}/>
             </FormItem>
         </FormContainer>
     )

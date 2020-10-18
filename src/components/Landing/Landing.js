@@ -1,7 +1,6 @@
 import React from 'react'
-import { Container } from 'reactstrap';
+
 import style from 'styled-components';
-import { ContactForm } from '../form/ContactForm';
 
 import {LandingBG} from './LandingBG'
 

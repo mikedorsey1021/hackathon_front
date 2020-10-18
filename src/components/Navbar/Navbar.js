@@ -18,10 +18,10 @@ export const Navbar = () => {
             </Hamburger>
             <Menu isOpen={isOpen}>
                 <MenuLinks>
-                    <Link to="/services">Services</Link>
+                    <Link to="/about">About</Link>
                 </MenuLinks>
                 <MenuLinks>
-                    <Link to="/find-help">Find Help</Link>
+                    <Link to="#">Find Services</Link>
                 </MenuLinks>
                 <MenuLinks>
                     <Link to="/contact">Contact</Link>
