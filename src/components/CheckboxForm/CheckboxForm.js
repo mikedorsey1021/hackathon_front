@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {api} from '../API/utils'
 import styles from 'styled-components';
 
 import { Checkbox } from '../checkbox/Checkbox'
@@ -36,6 +36,7 @@ class CheckboxForm extends React.Component{
 
    handleSubmit = (evt) => {
        evt.preventDefault()
+       api.post(this.state)
        console.log('onFormSubmit : ', this.state.checkedItems);
     }
     render(){
@@ -51,7 +52,11 @@ class CheckboxForm extends React.Component{
                         <ItemSelection key={item.key}>
                             <label>
                             {item.name}
-                                <Checkbox name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleChange} />
+                                <Checkbox
+                                    name={item.name}
+                                    checked={this.state.checkedItems.get(item.name)}
+                                    onChange={this.handleChange}
+                                />
                         </label>
                         </ItemSelection>
                     ))
@@ -203,11 +208,17 @@ class CheckboxForm extends React.Component{
                 <CheckboxContainer>
                     <h4>I would like to receive more information on partnering with Illinois Joining Forces.<span>*</span></h4>
                     {
-                        section_thirteen_checkboxes.map((item) => (
+                        section_thirteen_checkboxes.map((item, idx) => (
                             <ItemSelection key={item.key}>
                                 <label>
                                     {item.name}
-                                    <Checkbox key={item.key} name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleChange} />
+                                    <Checkbox
+                                        key={item.key}
+                                        name={item.name}
+                                        checked={this.state.checkedItems.get(item.name) || false}
+                                        onChange={this.handleChange}
+                                        disabled={true}
+                                    />
                                 </label>
                             </ItemSelection>
                         ))
