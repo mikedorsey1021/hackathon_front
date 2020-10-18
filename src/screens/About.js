@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import style from 'styled-components';
-import CheckboxForm  from '../components/CheckboxForm/CheckboxForm';
+import { Search } from '../components/SearchComponent.js/Search';
 
 
 export const About = () => {
