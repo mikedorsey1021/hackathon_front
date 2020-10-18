@@ -3,6 +3,7 @@ import { ButtonComponent } from '../Button/Button';
 import style from 'styled-components';
 import { FormInput } from '../FormInput/FormInput';
 import { Link, Redirect } from 'react-router-dom';
+import CheckboxForm from '../CheckboxForm/CheckboxForm';
 
 export const ContactForm = () => {
 
@@ -53,12 +54,13 @@ export const ContactForm = () => {
         evt.preventDefault();
         console.log(formData)
         setSubmit({
+            ...isSubmitted,
             hasSubmitted: true
         })
 
     }
-    
-    return (
+
+    return !hasSubmitted ? (
         <FormContainer>
             <h1>Join Our Partner Database</h1>
             <FormItem onSubmit={evt => handleSubmit(evt)}>
@@ -197,6 +199,8 @@ export const ContactForm = () => {
                 <ButtonComponent title={'Submit'} color={'signup'}/>
             </FormItem>
         </FormContainer>
+    ):(
+        <CheckboxForm/>
     )
 }
 
